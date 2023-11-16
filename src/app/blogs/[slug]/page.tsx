@@ -6,6 +6,12 @@ import BlogDetails from "@/src/components/Blog/BlogDetail";
 import RenderMdx from "@/src/components/Blog/RenderMdx";
 import { slug } from "github-slugger";
 
+export async function generateStaticParams() {
+	return allBlogs.map((blog) => ({
+		slug: blog._raw.flattenedPath
+	}));
+}
+
 function BlogPage({ params }) {
 	const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
 	return (

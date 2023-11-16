@@ -1,7 +1,26 @@
 import { allBlogs } from "@/.contentlayer/generated";
 import BlogLayoutThree from "@/src/components/Blog/BlogLayoutThree";
 import Categories from "@/src/components/Blog/Categories";
-import { slug } from "github-slugger";
+import GitHubSlugger, { slug } from "github-slugger";
+
+const slugger = new GitHubSlugger();
+
+export async function generateStaticParams() {
+	const categories = [];
+	const paths = [{ slug: "all" }];
+	allBlogs.map((blog) => {
+		if (blog.isPublished) {
+			blog.tags.map((tag) => {
+				let slugified = slugger.slug(tag);
+				if (!categories.includes(slugified)) {
+					categories.push(slugified);
+					paths.push({ slug: slugified });
+				}
+			});
+		}
+	});
+	return paths;
+}
 
 function CategoryPage({ params }) {
 	const allCategories = ["all"];
