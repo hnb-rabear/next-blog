@@ -1,8 +1,12 @@
-## Introduction
+## Next.js 13 Blog Tutorial
 
 **This tutorial project was created by following the instructions provided in the tutorial below**👇: <br />
 **https://youtu.be/1QGLHOaRLwM** <br />
 [![YouTube Video Views](https://img.shields.io/youtube/views/1QGLHOaRLwM?style=social)](https://youtu.be/1QGLHOaRLwM)<br />
+
+## View the demo
+
+Open [https://next-blog-seven-sand.vercel.app/]
 
 ## Getting Started
 
