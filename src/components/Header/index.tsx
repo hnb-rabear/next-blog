@@ -5,8 +5,9 @@ import {
 	GithubIcon,
 	LinkedinIcon,
 	SunIcon,
-	TwitterIcon,
+	TwitterIcon
 } from "../Icons";
+import siteMetadata from "@/src/utils/siteMetaData";
 
 const Header = () => {
 	return (
@@ -26,19 +27,47 @@ const Header = () => {
 					<SunIcon className="" />
 				</button>
 			</nav>
-			<div>
-				<a href="/" className="inline-block w-6 h-6 mr-4">
-					<LinkedinIcon className="hover:scale-125 ease duration-200" />
-				</a>
-				<a href="/" className="inline-block w-6 h-6 mr-4">
-					<TwitterIcon className="hover:scale-125 ease duration-200" />
-				</a>
-				<a href="/" className="inline-block w-6 h-6 mr-4">
-					<GithubIcon className="hover:scale-125 ease duration-200" />
-				</a>
-				<a href="/" className="inline-block w-6 h-6 mr-4">
-					<DribbbleIcon className="hover:scale-125 ease duration-200" />
-				</a>
+			<div className=" hidden sm:flex items-center">
+				{siteMetadata.linkedin && (
+					<a
+						href={siteMetadata.linkedin}
+						className="inline-block w-6 h-6 mr-4"
+						aria-label="Reach out to me via LinkedIn"
+						target="_blank"
+					>
+						<LinkedinIcon className="hover:scale-125 transition-all ease duration-200" />
+					</a>
+				)}
+				{siteMetadata.twitter && (
+					<a
+						href={siteMetadata.twitter}
+						className="inline-block w-6 h-6 mr-4"
+						aria-label="Reach out to me via Twitter"
+						target="_blank"
+					>
+						<TwitterIcon className="hover:scale-125 transition-all ease duration-200" />
+					</a>
+				)}
+				{siteMetadata.github && (
+					<a
+						href={siteMetadata.github}
+						className="inline-block w-6 h-6 mr-4"
+						aria-label="Check my profile on Github"
+						target="_blank"
+					>
+						<GithubIcon className="  hover:scale-125 transition-all ease duration-200 dark:fill-light" />
+					</a>
+				)}
+				{siteMetadata.dribbble && (
+					<a
+						href={siteMetadata.dribbble}
+						className="inline-block w-6 h-6 mr-4"
+						aria-label="Check my profile on Dribbble"
+						target="_blank"
+					>
+						<DribbbleIcon className="hover:scale-125 transition-all ease duration-200" />
+					</a>
+				)}
 			</div>
 		</div>
 	);
